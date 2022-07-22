@@ -3,6 +3,9 @@ import { Form, Input, Button, message } from 'antd';
 import { useMutation } from 'react-query';
 import Cookies from 'js-cookie';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { IoArrowBackOutline } from 'react-icons/io5';
+import { HiOutlineMail } from 'react-icons/hi';
+import { RiLock2Line } from 'react-icons/ri';
 
 import styles from './styles.module.scss';
 import { sendPostLogin } from 'api/auth';
@@ -47,41 +50,47 @@ const LoginComponent = () => {
   }
 
   return (
-    <div className={styles.pageLogin}>
-      <Form name="basic" onFinish={onFinish} autoComplete="off">
-        <Form.Item
-          label="Username"
-          name="username"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your username!',
-            },
-          ]}
-        >
-          <Input />
-        </Form.Item>
+    <>
+      <div className="back-to-page">
+        <IoArrowBackOutline />
 
-        <Form.Item
-          label="Password"
-          name="password"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your password!',
-            },
-          ]}
-        >
-          <Input.Password />
-        </Form.Item>
+        <h3 className="title">New Account</h3>
+      </div>
 
-        <Form.Item>
-          <Button loading={isLoading} type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+      <div className={styles.pageLogin}>
+        <Form name="basic" onFinish={onFinish} autoComplete="off">
+          <Form.Item
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your username!',
+              },
+            ]}
+          >
+            <Input prefix={<HiOutlineMail />} placeholder="Username" />
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+          >
+            <Input.Password prefix={<RiLock2Line />} placeholder="Username" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button loading={isLoading} disabled={isLoading} type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+      </div>
+    </>
   );
 };
 

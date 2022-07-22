@@ -1,11 +1,41 @@
 .pageLogin {
-  background-color: rgba(144, 238, 144, 0.596);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  padding: 4rem 3rem;
+  :global {
+    .ant-form-item:first-child {
+      margin: 0;
+    }
 
-  form {
-    text-align: center;
+    .ant-input-affix-wrapper {
+      border-radius: 1rem 1rem 0 0;
+      padding: 1rem;
+    }
+
+    .ant-input-prefix {
+      svg {
+        font-size: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    .ant-btn {
+      width: 100%;
+      border-radius: 1rem;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      height: 100%;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .ant-input-suffix {
+      svg {
+        font-size: 1.5rem;
+      }
+    }
+
+    .ant-input-password {
+      border-radius: 0 0 1rem 1rem;
+    }
   }
 }
